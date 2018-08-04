@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search data </title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="jumbotron"></div>
+<div class="container">
+    <div class="col-md-8">
+        <form method="post">
+            {% csrf_token %}
+            {{form}}
+            <input type="submit" name="Search" class="btn btn-primary">
+        </form>
+    </div>
+    <div class="col-md-12">
+
+
+        <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Address</th>
+        <th>Phone</th>
+        <th>Website</th>
+        <th>Manta.com</th>
+        <th>Facebook</th>
+        <th>Linked-in</th>
+      </tr>
+    </thead>
+    <tbody>
+
+        {% for i in d %}
+             <tr>
+                 {% for j in i %}
+                    <td>{{ j }}</td>
+                 {% endfor %}
+              </tr>
+        {% endfor %}
+
+
+
+    </tbody>
+  </table>
+
+    </div>
+</div>
+</body>
+</html>
